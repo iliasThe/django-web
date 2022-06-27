@@ -1,0 +1,54 @@
+{% load static %}
+{% load main_tags %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'main/css/styles.css' %}" rel="stylesheet" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="shortcut icon" href="{% static 'main/images/blinq.ico' %}" type="image/x-icon"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<table class="table-page" border="0" cellpadding="0" cellspacing="0">
+<tr><td valign=top>
+{% block mainmenu %}
+        <div class="header">
+            <ul id="mainmenu" class="mainmenu">
+            <li class="logo"><a href="#"><div class="logo"></div></a></li>
+{% for m in menu %}
+    {% if not forloop.last %}
+            <li><a href="#">{{m.title}}</a></li>
+    {% else %}
+            <li class="last"><a href="#">{{m.title}}</a></li>
+    {% endif %}
+{% endfor %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+{% endblock mainmenu %}
+
+<table class="table-content" border="0" cellpadding="0" cellspacing="0">
+<tr>
+    <td valign="top" class="left-chapters">
+        <ul id="left-chapters">
+            <li class="selected">Все категории</li>
+            <li><a href="https://www.youtube.com/watch?v=-W20dfeNCmI&ab_channel=Gorillaz-Topic">Любимая песня моей девочки</a></li>
+            <li><a href="https://www.youtube.com/watch?v=M7OX6YwmTj4&ab_channel=ChildishGambino-Topic">Самый чувственный трек Дональда Гловера</a></li>
+            <li><a href="https://www.youtube.com/watch?v=Jg5wkZ-dJXA&ab_channel=KanyeWestVEVO">Самый клёвый музыкальный клип</a></li>
+            <li><a href="https://youtu.be/mbOUwdyse28?t=1761">Канал лучшего в мире битмейкера</a></li>
+            <li class="share">
+        </ul>
+    </td>
+
+<td valign="top" class="content">
+    <div class="content-text">
+{% block content %}
+{% endblock %}
+    </div>
+
+<!-- Конец футера -->
+</td></tr></table>
+</td></tr></table>
+</body>
+</html>
